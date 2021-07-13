@@ -259,6 +259,7 @@ namespace NuGet.ProjectModel.Test
                           ""packageType"": []
                         }
                       }")]
+#pragma warning disable CS0612 // Type or member is obsolete
         public void PackageSpecReader_PackOptions_Default(string json)
         {
             // Arrange & Act
@@ -502,6 +503,7 @@ namespace NuGet.ProjectModel.Test
                 Assert.Equal(expectedValue, actual.BuildOptions.OutputName);
             }
         }
+#pragma warning restore CS0612 // Type or member is obsolete
 
         [Fact]
         public void PackageSpecReader_ReadsWithoutRestoreSettings()
@@ -999,6 +1001,7 @@ namespace NuGet.ProjectModel.Test
             Assert.Null(spec.TargetFrameworks.First().RuntimeIdentifierGraphPath);
         }
 
+#pragma warning disable CS0612 // Type or member is obsolete
         [Fact]
         public void GetPackageSpec_WhenAuthorsPropertyIsAbsent_ReturnsEmptyAuthors()
         {
@@ -1196,6 +1199,7 @@ namespace NuGet.ProjectModel.Test
 
             Assert.Equal(expectedValue, packageSpec.Copyright);
         }
+#pragma warning restore CS0612 // Type or member is obsolete
 
         [Fact]
         public void GetPackageSpec_WhenDependenciesPropertyIsAbsent_ReturnsEmptyDependencies()
@@ -1512,6 +1516,7 @@ namespace NuGet.ProjectModel.Test
             Assert.Equal(expectedValue, dependency.VersionCentrallyManaged);
         }
 
+#pragma warning disable CS0612 // Type or member is obsolete
         [Fact]
         public void GetPackageSpec_WhenDescriptionPropertyIsAbsent_ReturnsNullDescription()
         {
@@ -1551,6 +1556,7 @@ namespace NuGet.ProjectModel.Test
 
             Assert.Equal(expectedResult, packageSpec.Language);
         }
+#pragma warning restore CS0612 // Type or member is obsolete
 
         [Fact]
         public void GetPackageSpec_WhenFrameworksPropertyIsAbsent_ReturnsEmptyFrameworks()
@@ -2432,6 +2438,7 @@ namespace NuGet.ProjectModel.Test
             Assert.Equal(expectedResult, framework.Warn);
         }
 
+#pragma warning disable CS0612 // Type or member is obsolete
         [Fact]
         public void GetPackageSpec_WhenPackIncludePropertyIsAbsent_ReturnsEmptyPackInclude()
         {
@@ -2841,6 +2848,7 @@ namespace NuGet.ProjectModel.Test
 
             Assert.Equal(expectedResults, packageSpec.PackOptions.Mappings);
         }
+#pragma warning restore CS0612 // Type or member is obsolete
 
         [Fact]
         public void GetPackageSpec_WhenRestorePropertyIsAbsent_ReturnsNullRestoreMetadata()
@@ -3392,6 +3400,7 @@ namespace NuGet.ProjectModel.Test
             Assert.Equal(expectedResult, packageSpec.RuntimeGraph);
         }
 
+#pragma warning disable CS0612 // Type or member is obsolete
         [Fact]
         public void GetPackageSpec_WhenScriptsValueIsEmptyObject_ReturnsScripts()
         {
@@ -3444,6 +3453,7 @@ namespace NuGet.ProjectModel.Test
                         actualScript => Assert.Equal(script2, actualScript));
                 });
         }
+#pragma warning restore CS0612 // Type or member is obsolete
 
         [Theory]
         [InlineData("null", null)]
