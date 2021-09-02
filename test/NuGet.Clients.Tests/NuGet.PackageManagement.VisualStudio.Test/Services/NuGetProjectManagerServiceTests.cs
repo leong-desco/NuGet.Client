@@ -793,6 +793,11 @@ namespace NuGet.PackageManagement.VisualStudio.Test
             {
                 throw new NotImplementedException();
             }
+
+            public Task<string> GetSolutionDirectoryAsync()
+            {
+                return Task.FromResult(_directory.Path);
+            }
         }
     }
 }
