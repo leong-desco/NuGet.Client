@@ -122,7 +122,7 @@ namespace NuGet.Credentials
                             throw new ProviderException(Resources.ProviderException_MalformedResponse);
                         }
 
-                        if (response.Status != CredentialStatus.UserCanceled)
+                        if (response.Status == CredentialStatus.Success)
                         {
                             AddToCredentialCache(uri, type, provider, response);
                         }
@@ -130,7 +130,7 @@ namespace NuGet.Credentials
 
                     if (response.Status == CredentialStatus.Success)
                     {
-                        _retryCache[retryKey] = false;
+                        _retryCache[retryKey] = true;
                         creds = response.Credentials;
                         break;
                     }
@@ -197,12 +197,12 @@ namespace NuGet.Credentials
             credentials = null;
 
             var key = CredentialCacheKey(uri, type, provider);
-            if (isRetry)
-            {
-                CredentialResponse removed;
-                _providerCredentialCache.TryRemove(key, out removed);
-                return false;
-            }
+            //if (isRetry)
+            //{
+            //    CredentialResponse removed;
+            //    _providerCredentialCache.TryRemove(key, out removed);
+            //    return false;
+            //}
 
             return _providerCredentialCache.TryGetValue(key, out credentials);
         }
